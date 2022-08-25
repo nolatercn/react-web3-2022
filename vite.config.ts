@@ -6,7 +6,7 @@ import vitePluginImp from 'vite-plugin-imp' // 按需引入
 import lessToJS from 'less-vars-to-js' // less 样式转化为 json 键值对的形式
 console.log(__dirname);
 const themeVariables = lessToJS(
-  fs.readFileSync(path.resolve(__dirname, './src/css/variables.less'), 'utf8')
+  fs.readFileSync(path.resolve(__dirname, './src/less/variables.less'), 'utf8')
 )
 
 // https://vitejs.dev/config/
