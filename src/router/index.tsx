@@ -1,22 +1,14 @@
-import Home from '@/pages/home'
-import Analytics from '@/pages/analytics'
-import NotFound from '@/pages/404'
-
+import NotFound from '@/pages/404';
+import menuRouter from '@/router/menu';
 const routes = [
-  {
-    path: "/",
-    element: <Home />,
-    children: [
-      {
-        path: "/analytics",
-        element: <Analytics />
-      },
-    ]
-  },
-  {
-    path: "*",
-    element: <NotFound />
-  }
-]
+  ...menuRouter,
 
-export default routes
+  {
+    path: '*',
+    element: <NotFound />,
+    key: 'notfount',
+    label: '404',
+  },
+];
+
+export default routes;
