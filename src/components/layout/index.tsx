@@ -1,8 +1,7 @@
-import React from 'react';
 import { Layout } from 'antd';
 const { Header, Content } = Layout;
 import Menu from '@/components/menu';
-export default (props: any) => {
+export default function LayoutComponent(props: any) {
   return (
     <Layout>
       <Menu />
@@ -20,4 +19,4 @@ export default (props: any) => {
       </Layout>
     </Layout>
   );
-};
+}
