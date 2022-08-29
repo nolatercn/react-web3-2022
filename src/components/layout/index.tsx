@@ -1,21 +1,15 @@
 import { Layout } from 'antd';
-const { Header, Content } = Layout;
-import Menu from '@/components/menu';
+const { Content } = Layout;
+import MenuComponent from '@/components/menu';
+import HeaderComponent from '../header';
+import './index.less';
 export default function LayoutComponent(props: any) {
   return (
     <Layout>
-      <Menu />
-      <Layout>
-        <Header
-          style={{ position: 'fixed', zIndex: 1, width: '100%' }}
-        ></Header>
-
-        <Content
-          className="site-layout"
-          style={{ padding: '0 50px', marginTop: 64 }}
-        >
-          {props.children}
-        </Content>
+      <MenuComponent />
+      <Layout className="layout-decorate">
+        <HeaderComponent />
+        <Content>{props.children}</Content>
       </Layout>
     </Layout>
   );
