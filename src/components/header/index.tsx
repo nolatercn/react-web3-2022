@@ -9,9 +9,9 @@ export default function HeaderComponent(props: any) {
           <Input
             placeholder="Search you keyword"
             bordered={false}
-            style={{ fontSize: 32 }}
+            style={{ fontSize: 24 }}
             prefix={
-              <SearchOutlined style={{ fontSize: 32, color: '#9155fd' }} />
+              <SearchOutlined style={{ fontSize: 24, color: '#9155fd' }} />
             }
           />
         </Col>
