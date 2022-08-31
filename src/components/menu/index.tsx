@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Layout, Menu } from 'antd';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import logo from '@/images/logo.svg';
 const { Sider } = Layout;
 import routes from '@/router/menu';
@@ -20,6 +20,7 @@ export default function MenuComponent() {
   const [menuList, setMenuList] = useState([]);
   useEffect(() => {
     setMenuList(menu_add_key(routes));
+    console.log(useLocation());
   }, []);
 
   const navigate = useNavigate();

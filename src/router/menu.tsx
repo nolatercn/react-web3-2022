@@ -5,13 +5,13 @@ export default [
   {
     path: 'home',
     element: <Home />,
-    label: '首页',
+    label: 'Home',
     icon: <HomeOutlined />,
   },
   {
-    path: 'experience',
+    path: 'advanced',
     element: <Analytics />,
-    label: '功能体验',
+    label: 'Advanced',
     icon: <BarChartOutlined />,
   },
 ];
