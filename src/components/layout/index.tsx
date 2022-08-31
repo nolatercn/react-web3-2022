@@ -7,11 +7,11 @@ import './index.less';
 
 export default function LayoutComponent() {
   return (
-    <Layout>
+    <Layout style={{ height: '100vh', overflow: 'hidden' }}>
       <MenuComponent />
       <Layout className="layout-decorate">
         <HeaderComponent />
-        <Content style={{ padding: 16 }}>
+        <Content style={{ padding: 16, overflowY: 'scroll' }}>
           <Outlet />
         </Content>
       </Layout>
