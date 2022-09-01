@@ -1,5 +1,7 @@
 # project init
 
+
+![ant-design themes default style](https://github.com/ant-design/ant-design/blob/master/components/style/themes/default.less)
 ```javascript
 yarn create vite react-web3-2022 --template react-ts
 yarn add react-router-dom

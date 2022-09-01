@@ -1,6 +1,7 @@
 import Home from '@/pages/home';
 import Analytics from '@/pages/analytics';
 import { HomeOutlined, BarChartOutlined } from '@ant-design/icons';
+
 export default [
   {
     path: 'home',
