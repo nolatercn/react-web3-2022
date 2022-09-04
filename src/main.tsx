@@ -4,7 +4,11 @@ import { BrowserRouter } from 'react-router-dom';
 import '@/less/index.less';
 import App from '@/router';
 import dva from 'dva';
-const app = dva();
+import { createBrowserHistory } from 'history';
+
+const app = dva({
+  history: createBrowserHistory(),
+});
 
 app.model(wallet);
 
