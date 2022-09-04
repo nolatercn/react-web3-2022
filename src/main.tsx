@@ -1,12 +1,19 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
-import { BrowserRouter, useRoutes } from 'react-router-dom';
+import wallet from "@/models/wallet";
+import { BrowserRouter } from 'react-router-dom';
 import '@/less/index.less';
 import App from '@/router';
-ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
+import dva from 'dva';
+const app = dva();
+
+app.model(wallet);
+
+app.router(() => (
   <React.StrictMode>
     <BrowserRouter>
       <App />
     </BrowserRouter>
   </React.StrictMode>
-);
+));
+
+app.start('#root');
