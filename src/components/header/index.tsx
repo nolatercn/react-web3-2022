@@ -1,7 +1,11 @@
 import { Layout, Row, Col, Avatar, Divider, Input, Button } from 'antd';
 const { Header } = Layout;
+
 import { SearchOutlined, WalletOutlined } from '@ant-design/icons';
-export default function HeaderComponent(props: any) {
+
+import { observer } from 'mobx-react-lite';
+
+function HeaderComponent(props: any) {
   return (
     <Header>
       <Row justify="space-between">
@@ -26,3 +30,5 @@ export default function HeaderComponent(props: any) {
     </Header>
   );
 }
+
+export default observer(HeaderComponent);
