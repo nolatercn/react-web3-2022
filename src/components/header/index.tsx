@@ -3,12 +3,12 @@ import { useEffect, useState } from 'react';
 import { SearchOutlined, WalletOutlined } from '@ant-design/icons';
 import { observer } from 'mobx-react-lite';
 import _ from 'lodash';
+import { Wallet } from '@/store/wallet';
 const { Header } = Layout;
 
-function HeaderComponent(props: any) {
+function HeaderComponent({ wallet }: { wallet: Wallet }) {
   const [wAddress, setWaddres] = useState('');
-
-  const { address = '', isWalletStatus = '' } = {};
+  const { address = '', isWalletStatus = '' } = wallet;
   useEffect(() => {
     const sliceStr = address.slice(6, address.length - 6);
     setWaddres(_.replace(address, sliceStr, '...'));
@@ -27,7 +27,7 @@ function HeaderComponent(props: any) {
             }
           />
         </Col>
-        <Col span={7} className="children-button-right">
+        <Col span={7} style={{ flex: 0 }}>
           {isWalletStatus ? (
             <Button type="link" className="user-wallet-wrapper" shape="round">
               <span className="fn-lh38">{wAddress}</span>

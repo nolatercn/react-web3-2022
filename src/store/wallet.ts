@@ -2,11 +2,12 @@ import { makeAutoObservable } from 'mobx';
 
 export class Wallet {
   address = '';
+  isWalletStatus = true
 
   constructor() {
     makeAutoObservable(this);
   }
-  getUserAddress() {}
+  getUserAddress() { }
 }
 
 export default new Wallet();
