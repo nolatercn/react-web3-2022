@@ -1,19 +1,19 @@
 import { Layout, Row, Col, Avatar, Divider, Input, Button } from 'antd';
-const { Header } = Layout;
-import { SearchOutlined, WalletOutlined } from '@ant-design/icons';
-import _ from 'lodash';
-import { connect } from 'dva';
 import { useEffect, useState } from 'react';
+import { SearchOutlined, WalletOutlined } from '@ant-design/icons';
+import { observer } from 'mobx-react-lite';
+import _ from 'lodash';
+import { Wallet } from '@/store/wallet';
+const { Header } = Layout;
 
-export default connect(({ wallet }) => ({ wallet }))((props: any) => {
+function HeaderComponent({ wallet }: { wallet: Wallet }) {
   const [wAddress, setWaddres] = useState('');
 
-  const { dispatch, wallet } = props;
+  const { address = '', isWalletStatus = '' } = wallet;
+
   useEffect(() => {
-    dispatch({ type: 'wallet/getWalletStatus' });
-  }, []);
-  const { address } = wallet;
-  useEffect(() => {
+    wallet.getUserAddress();
+
     const sliceStr = address.slice(6, address.length - 6);
     setWaddres(_.replace(address, sliceStr, '...'));
   }, [address]);
@@ -31,8 +31,8 @@ export default connect(({ wallet }) => ({ wallet }))((props: any) => {
             }
           />
         </Col>
-        <Col span={7} className="children-button-right">
-          {wallet.isWalletStatus ? (
+        <Col span={7} style={{ flex: 0 }}>
+          {isWalletStatus ? (
             <Button type="link" className="user-wallet-wrapper" shape="round">
               <span className="fn-lh38">{wAddress}</span>
               <Avatar
@@ -50,4 +50,6 @@ export default connect(({ wallet }) => ({ wallet }))((props: any) => {
       <Divider style={{ margin: 0 }} />
     </Header>
   );
-});
+}
+
+export default observer(HeaderComponent);
