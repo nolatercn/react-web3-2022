@@ -10,6 +10,7 @@ function HeaderComponent({ wallet }: { wallet: Wallet }) {
   const [wAddress, setWaddres] = useState('');
   const { address = '', isWalletStatus = '' } = wallet;
   useEffect(() => {
+    wallet.getUserAddress();
     const sliceStr = address.slice(6, address.length - 6);
     setWaddres(_.replace(address, sliceStr, '...'));
   }, [address]);
